@@ -40,14 +40,13 @@ const limiter = rateLimit({
 app.use(limiter);
 
 //MongoDB Database Connection 
-let URL = "mongodb+srv://mdfawjulazim:mdfawjulazim123@cluster.szrub.mongodb.net/Todo";
+const MONGODB_CONNECTION="mongodb+srv://mdfawjulazim:mdfawjulazim123@cluster.szrub.mongodb.net/Todo";
 
-mongoose.connect(URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+mongoose.connect(MONGODB_CONNECTION,{autoIndex:true}).then(()=>{
+  console.log("Connected to MongoDB");
+}).catch(err=>{
+  console.log("Error connecting to MongoDB");
 })
-.then(() => console.log('Connected to MongoDB successfully'))
-.catch(err => console.error('Error connecting to MongoDB:', err.toString()));
 
 app.use("/api/v1",router);
 
@@ -57,5 +56,5 @@ app.use("*",(req,res)=>{
     res.status(404).json({message: "Page Not Found"});
 })
 
-
+ 
 module.exports = app;
