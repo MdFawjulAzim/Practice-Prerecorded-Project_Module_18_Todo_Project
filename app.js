@@ -38,3 +38,24 @@ const limiter = rateLimit({
   max: 100 // limit each IP to 100 requests per windowMs
 });
 app.use(limiter);
+
+//MongoDB Database Connection 
+let URL = "mongodb+srv://mdfawjulazim:mdfawjulazim123@cluster.szrub.mongodb.net/Todo";
+
+mongoose.connect(URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => console.log('Connected to MongoDB successfully'))
+.catch(err => console.error('Error connecting to MongoDB:', err.toString()));
+
+app.use("/api/v1",router);
+
+//Undefined Routing Implement
+
+app.use("*",(req,res)=>{
+    res.status(404).json({message: "Page Not Found"});
+})
+
+
+module.exports = app;
