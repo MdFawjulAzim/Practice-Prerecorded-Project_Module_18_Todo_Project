@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "ef7e22e4-7e3c-457c-901f-d04e850e0386",
+		"name": "Pre_Recored Project Todo Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38179196"
+	},
+	"item": [
+		{
+			"name": "Login Registration",
+			"item": [
+				{
+					"name": "Create Profile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"fawjlul\",\r\n    \"LastName\": \"azim\",\r\n    \"EmailAddress\": \"emma.davis@example.com\",\r\n    \"MobileNumber\": \"6667891234\",\r\n    \"City\": \"Miami\",\r\n    \"UserName\": \"emmadavis2025\",\r\n    \"Password\": \"hashed_password_5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/CreateProfile",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"CreateProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UserName\": \"mdfawjulazim@gmail.com\",\r\n    \"Password\": \"mdfawjulazim@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/UserLogin",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"UserLogin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProfile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"Hassan\",\r\n    \"LastName\": \"Emil\",\r\n    \"EmailAddress\": \"hasanemil@gmail.com\",\r\n    \"MobileNumber\": \"126456989\",\r\n    \"City\": \"Dhaka\",\r\n    \"Password\": \"password5512345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/UpdateProfile",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"UpdateProfile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Profile",
+			"item": [
+				{
+					"name": "Select Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/SelectProfile",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"SelectProfile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Todo List",
+			"item": [
+				{
+					"name": "CreateToDo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"TodoSubject\": \"Hold mother do skill.\",\r\n  \"TodoDescription\": \"Piece itself build newspaper morning street deliver.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/CreateToDo",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"CreateToDo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SelectToDo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/SelectToDo",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"SelectToDo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateToDo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"TodoSubject\": \"New_Hold mother do skill.\",\r\n  \"TodoDescription\": \"New_Piece itself build newspaper morning street deliver.\",\r\n  \"_id\":\"673cd40f604b2c319be4634d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/UpdateToDo",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"UpdateToDo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateStatusToDo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"TodoStatus\":\"Completed\",\r\n  \"_id\":\"673cd1bea3fb813ec441a2c0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/UpdateStatusToDo",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"UpdateStatusToDo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RemoveToDo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"_id\":\"673cd1bea3fb813ec441a2c0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/RemoveToDo",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"RemoveToDo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SelectToDoByStatus",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"TodoStatus\":\"New\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/SelectToDoByStatus",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"SelectToDoByStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SelectToDoByDate",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"FormDate\":\"2024-11-13\",\r\n  \"ToDate\":\"2024-11-20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/SelectToDoByDate",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"SelectToDoByDate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASEURL",
+			"value": "localhost:5000/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "token-key",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzIxMDIwOTYsImRhdGEiOnsiX2lkIjoiNjczYzMwMWNiMjVlNGJlMDEyZjEzNmFlIiwiRmlyc3ROYW1lIjoiZmF3amx1bCIsIkxhc3ROYW1lIjoiYXppbSIsIkVtYWlsQWRkcmVzcyI6ImVtbWEuZGF2aXNAZXhhbXBsZS5jb20iLCJNb2JpbGVOdW1iZXIiOiI2NjY3ODkxMjM0IiwiQ2l0eSI6Ik1pYW1pIiwiVXNlck5hbWUiOiJlbW1hZGF2aXMyMDI1IiwiUGFzc3dvcmQiOiJoYXNoZWRfcGFzc3dvcmRfNSJ9LCJpYXQiOjE3MzIwMTU2OTZ9.s7ROFow6LhkNmxGYDEJP-OY7G6BxBTmVg6Lg2IVg-eg",
+			"type": "string"
+		}
+	]
+}
