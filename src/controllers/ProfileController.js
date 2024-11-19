@@ -1,6 +1,8 @@
 const ProfileModel = require('../models/ProfileModels.js'); 
 let jwt = require('jsonwebtoken');
 
+//user Registration
+
 exports.CreateProfile = async (req, res) => {
     try {
         let reqBody = req.body;
@@ -11,6 +13,7 @@ exports.CreateProfile = async (req, res) => {
     }
 };
 
+// User Login 
 
 exports.UserLogin = async (req, res) => {
     try {
@@ -36,6 +39,7 @@ exports.UserLogin = async (req, res) => {
     }
 };
 
+//User Profile Read Profile
 
 exports.SelectProfile = async(req,res) => {
     try {
@@ -50,3 +54,22 @@ exports.SelectProfile = async(req,res) => {
         return res.status(400).json({ status: "fail", data: err.toString() });
     }
 }
+
+//User Profile Update
+
+exports.UpdateProfile = async(req,res) => {
+    try {
+        let UserName = req.headers.UserName; 
+        let reqBody = req.body;
+        const Data = await ProfileModel.findOneAndUpdate(
+             { UserName: UserName },reqBody,{new: true }
+         );
+ 
+         if (!Data) {
+             return res.status(404).json({ status: 'fail', message: 'User not found' });
+         }
+         return res.status(200).json({ status: 'success', data: Data });
+    } catch (err) {
+        return res.status(400).json({ status: "fail", data: err.toString() });
+    }
+} 

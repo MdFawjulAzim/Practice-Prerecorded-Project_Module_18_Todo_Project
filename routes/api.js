@@ -14,6 +14,9 @@ router.post("/UserLogin",ProfileController.UserLogin);
 
 router.get("/SelectProfile",AuthVerifyMiddleware,ProfileController.SelectProfile);
 
+//Update Profile
+router.post("/UpdateProfile",AuthVerifyMiddleware,ProfileController.UpdateProfile);
+
 
 
 
