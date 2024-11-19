@@ -35,3 +35,18 @@ exports.UserLogin = async (req, res) => {
         return res.status(400).json({ status: "fail", data: err.toString() });
     }
 };
+
+
+exports.SelectProfile = async(req,res) => {
+    try {
+        let UserName = req.headers.UserName; 
+        const data = await ProfileModel.find({ UserName: UserName});
+        if(!data || data.length === 0) {
+            return res.status(404).json({ status: "Not Found"});
+        }else{
+            return res.status(200).json({ status: "success", data: data });
+        }
+    } catch (err) {
+        return res.status(400).json({ status: "fail", data: err.toString() });
+    }
+}
