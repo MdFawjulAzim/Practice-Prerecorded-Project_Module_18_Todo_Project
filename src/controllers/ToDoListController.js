@@ -119,3 +119,19 @@ exports.RemoveToDo = async(req,res) => {
     }
 } 
 
+//Filter to do list
+
+exports.SelectToDoByStatus = async(req,res) => {
+    try {
+        let UserName = req.headers.UserName;
+        let TodoStatus = req.body.TodoStatus;
+        const data = await ToDoListModel.find({ UserName: UserName,TodoStatus:TodoStatus});
+        if(!data || data.length === 0) {
+            return res.status(404).json({ status: "Not Found"});
+        }else{
+            return res.status(200).json({ status: "success", data: data });
+        }
+    } catch (err) {
+        return res.status(400).json({ status: "fail", data: err.toString() });
+    }
+}
