@@ -76,3 +76,31 @@ exports.UpdateToDo = async(req,res) => {
         return res.status(400).json({ status: "fail", data: err.toString() });
     }
 } 
+
+//Status update
+
+exports.UpdateStatusToDo = async(req,res) => {
+    try {
+        let reqBody = req.body;
+        let TodoStatus = reqBody.TodoStatus;
+        let _id = reqBody['_id'];
+        let TodoUpdateDate = Date.now();
+
+        let PostBody ={
+            TodoStatus: TodoStatus,
+            TodoUpdateDate: TodoUpdateDate
+        }
+
+        const Data = await ToDoListModel.findOneAndUpdate(
+             { _id: _id },{$set:PostBody},{new: true }
+         );
+         if (!Data) {
+            return res.status(404).json({ status: "fail", message: "ToDo Status item not found." });
+        }
+
+        return res.status(200).json({ status: 'success', data: Data });
+    } catch (err) {
+        return res.status(400).json({ status: "fail", data: err.toString() });
+    }
+} 
+
