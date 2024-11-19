@@ -43,6 +43,10 @@ router.post("/RemoveToDo",AuthVerifyMiddleware,ToDoListController.RemoveToDo);
 
 router.get("/SelectToDoByStatus",AuthVerifyMiddleware,ToDoListController.SelectToDoByStatus);
 
+//Todo Select By Date
+
+router.get("/SelectToDoByDate",AuthVerifyMiddleware,ToDoListController.SelectToDoByDate);
+
 
 
 

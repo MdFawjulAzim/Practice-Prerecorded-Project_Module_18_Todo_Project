@@ -135,3 +135,25 @@ exports.SelectToDoByStatus = async(req,res) => {
         return res.status(400).json({ status: "fail", data: err.toString() });
     }
 }
+
+// Filter by date to do list
+
+exports.SelectToDoByDate = async(req,res) => {
+    try {
+        let UserName = req.headers.UserName;
+        let FormDate = req.body.FormDate;
+        let ToDate = req.body.ToDate;
+
+        const data = await ToDoListModel.find({ UserName: UserName,TodoCreateDate:{
+                                                                                    $gte: new Date(FormDate),
+                                                                                    $lte: new Date(ToDate)
+                                                                                }});
+        if(!data || data.length === 0) {
+            return res.status(404).json({ status: "Not Found"});
+        }else{
+            return res.status(200).json({ status: "success", data: data });
+        }
+    } catch (err) {
+        return res.status(400).json({ status: "fail", data: err.toString() });
+    }
+}
