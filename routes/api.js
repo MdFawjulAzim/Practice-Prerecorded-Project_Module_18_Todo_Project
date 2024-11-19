@@ -27,6 +27,10 @@ router.post("/CreateToDo",AuthVerifyMiddleware,ToDoListController.CreateToDo);
 
 router.get("/SelectToDo",AuthVerifyMiddleware,ToDoListController.SelectToDo);
 
+//ToDo Update
+
+router.post("/UpdateToDo",AuthVerifyMiddleware,ToDoListController.UpdateToDo);
+
 
 
 
