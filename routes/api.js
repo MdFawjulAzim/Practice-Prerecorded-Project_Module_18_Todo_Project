@@ -11,7 +11,7 @@ router.post("/CreateProfile",ProfileController.CreateProfile);
 //user login
 router.post("/UserLogin",ProfileController.UserLogin);
 
-//User details
+//User details Read
 
 router.get("/SelectProfile",AuthVerifyMiddleware,ProfileController.SelectProfile);
 
@@ -22,6 +22,10 @@ router.post("/UpdateProfile",AuthVerifyMiddleware,ProfileController.UpdateProfil
 //ToDo Create 
 
 router.post("/CreateToDo",AuthVerifyMiddleware,ToDoListController.CreateToDo);
+
+//ToDo Read 
+
+router.get("/SelectToDo",AuthVerifyMiddleware,ToDoListController.SelectToDo);
 
 
 
