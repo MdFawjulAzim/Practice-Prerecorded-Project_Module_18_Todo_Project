@@ -35,6 +35,10 @@ router.post("/UpdateToDo",AuthVerifyMiddleware,ToDoListController.UpdateToDo);
 
 router.post("/UpdateStatusToDo",AuthVerifyMiddleware,ToDoListController.UpdateStatusToDo);
 
+//ToDo Delete
+
+router.post("/RemoveToDo",AuthVerifyMiddleware,ToDoListController.RemoveToDo);
+
 
 
 

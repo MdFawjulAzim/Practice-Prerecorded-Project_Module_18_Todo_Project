@@ -104,3 +104,18 @@ exports.UpdateStatusToDo = async(req,res) => {
     }
 } 
 
+
+//  Remove todo status
+
+exports.RemoveToDo = async(req,res) => {
+    try {
+        let _id = req.body._id;
+
+
+        const Data = await ToDoListModel.deleteOne({_id: _id});
+        return res.status(200).json({ status: 'success', data: Data });
+    } catch (err) {
+        return res.status(400).json({ status: "fail", data: err.toString() });
+    }
+} 
+
